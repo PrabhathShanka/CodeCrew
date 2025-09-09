@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Events Management')
-@section('meta_description', 'Events Management')
+@section('title', 'Assignments Management')
+@section('meta_description',
+    'Easily manage and track all your university assignments with our efficient Assignments
+    Management system. Upload, monitor deadlines, and stay organized effortlessly.')
 
 @section('content')
     <div class="container mx-auto">
         <div class="flex items-center justify-between mb-6">
-            <h2 class="text-2xl font-bold">Events Management</h2>
-            <a href="{{ route('admin.events.create') }}"
+            <h2 class="text-2xl font-bold">Assignments</h2>
+            <a href="{{ route('admin.assignments.create') }}"
                 class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
-                <i class="mr-1 fas fa-plus"></i> Create Event
+                <i class="mr-1 fas fa-plus"></i> New Assignment
             </a>
         </div>
 
@@ -18,14 +20,17 @@
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Title</th>
-                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Date & Time</th>
-                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Venue</th>
+                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Name</th>
+                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Email</th>
+                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Subject</th>
+                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Deadline</th>
+                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Price</th>
+                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Status</th>
                             <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        @forelse($events as $event)
+                        {{--  @forelse($events as $event)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
@@ -70,63 +75,16 @@
                             <tr>
                                 <td colspan="4" class="px-6 py-4 text-center text-gray-500">No events found</td>
                             </tr>
-                        @endforelse
+                        @endforelse  --}}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-    @if (session('success'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: '{{ session('success') }}',
-                    timer: 3000,
-                    showConfirmButton: false
-                });
-            });
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error!',
-                    text: '{{ session('error') }}',
-                });
-            });
-        </script>
-    @endif
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Delete confirmation
-            const deleteForms = document.querySelectorAll('.delete-form');
-
-            deleteForms.forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            form.submit();
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 @endsection
+
+@push('scripts')
+    <script>
+      //  alert('Script loaded for this page!');
+    </script>
+@endpush
