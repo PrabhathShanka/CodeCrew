@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('promo_code')->unique();
             $table->decimal('discount_percentage', 5, 2)->default(0);
             $table->date('expiry_date')->nullable();
-            $table->integer('status')->default(1);
+            $table->integer('status')->default(1); // 1 = Active, 0 = Inactive,2 = Expired
             $table->timestamps();
         });
     }

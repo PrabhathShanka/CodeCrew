@@ -2,64 +2,109 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Handlers\PromotionCodeHandlers;
+use App\Handlers\userHandlers;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PromotionCodeStoreRequest;
+use App\Http\Requests\PromotionCodeUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PromotionCodeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    public function __construct(private PromotionCodeHandlers $promotionCodeHandlers, private userHandlers $userHandlers) {}
+
     public function index()
     {
         return view('admin.promotions-code.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function store(PromotionCodeStoreRequest $request)
     {
-        //
+        try {
+            $this->promotionCodeHandlers->storePromoCode($request->validated());
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Promotion code created successfully.',
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to create promotion code. Please try again.',
+
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function fetchAllPromoCodes()
     {
-        //
+        try {
+            return $this->promotionCodeHandlers->fetchAllPromoCodes();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to fetch promotion codes. Please try again.',
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        try {
+            $promoCode = $this->promotionCodeHandlers->fetchPromoCode($id);
+            return response()->json([
+                'status' => 200,
+                'promoCode' => $promoCode,
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to fetch promotion code. Please try again.',
+            ]);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(PromotionCodeUpdateRequest $request,string $id)
     {
-        //
+        try {
+            info($id);
+            $this->promotionCodeHandlers->updatePromoCode($request->validated(), $id);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Promotion code updated successfully.',
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to update promotion code. Please try again.',
+            ]);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
-        //
+        try {
+            $this->promotionCodeHandlers->deletePromoCode($id);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Promotion code deleted successfully.',
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to delete promotion code. Please try again.',
+            ]);
+        }
     }
 }

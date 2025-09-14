@@ -5,17 +5,14 @@ use App\Http\Controllers\Admin\PromotionCodeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/', function () {
     return view('home');
 });
 
 // Dashboard
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+// Route::get('/dashboard', function () {
+//     return view('admin.dashboard');
+// })->name('admin.dashboard');
 
 
 Route::get('/dashboard', function () {
@@ -26,7 +23,6 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
     Route::prefix('/assignments')->middleware(['auth'])->name('assignments.')->group(function () {
         Route::get('/', [AssignmentController::class, 'index'])->name('index');
-        Route::get('/create', [AssignmentController::class, 'create'])->name('create');
         Route::post('/store', [AssignmentController::class, 'store'])->name('store');
         Route::get('/show/{id}', [AssignmentController::class, 'show'])->name('show');
         Route::get('/edit/{id}', [AssignmentController::class, 'edit'])->name('edit');
@@ -36,13 +32,11 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 
     Route::prefix('/promotions-code')->middleware(['auth'])->name('promotions-code.')->group(function () {
         Route::get('/', [PromotionCodeController::class, 'index'])->name('index');
-        Route::get('/create', [PromotionCodeController::class, 'create'])->name('create');
+        Route::get('/fetchAllPromoCodes', [PromotionCodeController::class, 'fetchAllPromoCodes'])->name('fetchAllPromoCodes');
         Route::post('/store', [PromotionCodeController::class, 'store'])->name('store');
-        Route::get('/show/{id}', [PromotionCodeController::class, 'show'])->name('show');
         Route::get('/edit/{id}', [PromotionCodeController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [PromotionCodeController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [PromotionCodeController::class, 'destroy'])->name('destroy');
-
     });
 });
 
@@ -55,8 +49,6 @@ Route::middleware('auth')->group(function () {
     // Route::get('/dashboard', function () {
     //     return view('admin.dashboard');
     // })->name('admin.dashboard');
-
-
 });
 
 require __DIR__ . '/auth.php';

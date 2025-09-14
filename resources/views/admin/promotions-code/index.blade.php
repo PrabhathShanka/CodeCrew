@@ -9,18 +9,19 @@
     <div class="container mx-auto">
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl font-bold">Promotions Code</h2>
-            <a href="{{ route('admin.assignments.create') }}"
-                class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
-                <i class="mr-1 fas fa-plus"></i> New Promotion Code
-            </a>
+            <button type="button" id="openAddModalBtn" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                New Code
+            </button>
+
         </div>
 
         <div class="overflow-hidden bg-white rounded-lg shadow">
             <div class="overflow-x-auto">
-                <table id="myTable" class=" display min-w-full divide-y divide-gray-200" >
+                {{--  <table id="myTable" class=" display min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
                             <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Promotion Code</th>
+                            <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Assigned To</th>
                             <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Discount</th>
                             <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Expiry Date</th>
                             <th class="px-6 py-3 text-xs font-medium text-left text-gray-500 uppercase">Status</th>
@@ -28,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
-                        {{--  @forelse($events as $event)
+                         @forelse($events as $event)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
@@ -73,20 +74,38 @@
                             <tr>
                                 <td colspan="4" class="px-6 py-4 text-center text-gray-500">No events found</td>
                             </tr>
-                        @endforelse  --}}
+                        @endforelse
                     </tbody>
-                </table>
+                </table>  --}}
+                <div id="tableContainer">
 
-
+                </div>
             </div>
         </div>
+
+        <x-add-promo-code-modal />
+        <x-edit-promo-code-modal />
+
+
     </div>
 @endsection
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
+        $('#openAddModalBtn').click(function() {
+            $('#addPromoCodeModal').removeClass('hidden');
+        })
+
+        function fetchAllPromoCodes() {
+            $.ajax({
+                url: "{{ route('admin.promotions-code.fetchAllPromoCodes') }}",
+                method: 'GET',
+                success: function(response) {
+                    $('#tableContainer').html(response);
+                    $('#myTable').DataTable();
+                }
+
+            });
+        }
     </script>
 @endpush
