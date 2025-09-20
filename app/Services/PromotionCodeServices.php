@@ -57,4 +57,22 @@ class PromotionCodeServices
             throw $e;
         }
     }
+
+    public function checkPromoCode($code){
+        try {
+            return PromotionCode::where('promo_code', $code)->whereIn('status', [1,2])->first();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function getPromoCodes(){
+        try {
+            return PromotionCode::select('id', 'promo_code', 'discount', 'status')->get();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
+    }
 }

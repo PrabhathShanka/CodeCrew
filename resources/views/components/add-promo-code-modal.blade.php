@@ -173,7 +173,6 @@
 
             });
 
-
             $(document).on('click', '.promoCodeDelete', function(e) {
                 e.preventDefault();
                 let promoCodeId = $(this).attr('id');
@@ -218,12 +217,7 @@
                     }
                 });
             });
-
-
-
         });
-
-
 
         $('#openAddModalBtn').click(function() {
             $('#addPromoCodeModal').removeClass('hidden');

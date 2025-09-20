@@ -25,7 +25,7 @@
                      </div>
                      <div class="ml-4">
                          <p class="text-sm font-medium text-gray-600">Total Assignments</p>
-                         <p class="text-2xl font-bold text-gray-900">{{ $assignments['total'] }}</p>
+                         <p class="text-2xl font-bold text-gray-900">24</p>
                      </div>
                  </div>
              </div>
@@ -37,7 +37,7 @@
                      </div>
                      <div class="ml-4">
                          <p class="text-sm font-medium text-gray-600">Pending</p>
-                         <p class="text-2xl font-bold text-gray-900">{{ $assignments['pending'] }}</p>
+                         <p class="text-2xl font-bold text-gray-900">8</p>
                      </div>
                  </div>
              </div>
@@ -49,7 +49,7 @@
                      </div>
                      <div class="ml-4">
                          <p class="text-sm font-medium text-gray-600">In Progress</p>
-                         <p class="text-2xl font-bold text-gray-900">{{ $assignments['inProgress'] }}</p>
+                         <p class="text-2xl font-bold text-gray-900">12</p>
                      </div>
                  </div>
              </div>
@@ -61,7 +61,7 @@
                      </div>
                      <div class="ml-4">
                          <p class="text-sm font-medium text-gray-600">Completed</p>
-                         <p class="text-2xl font-bold text-gray-900">{{ $assignments['completed'] }}</p>
+                         <p class="text-2xl font-bold text-gray-900">4</p>
                      </div>
                  </div>
              </div>
@@ -75,43 +75,178 @@
                          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                              <i class="fas fa-search text-gray-400"></i>
                          </div>
-                         <input type="text" name="search"
+                         <input type="text"
                              class="pl-10 pr-4 py-2 border border-gray-300 rounded-md w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                             placeholder="Search assignments title...">
+                             placeholder="Search assignments...">
                      </div>
                  </div>
                  <div class="flex space-x-4">
-                     <select name="status"
-                         class="border border-gray-300 rounded-md px-7 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                         <option value="">All Assignments</option>
-                         <option value="pending">Pending Assignments</option>
-                         <option value="in_progress">In Progress Assignments</option>
-                         <option value="completed">Completed Assignments</option>
+                     <select
+                         class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                         <option>All Subjects</option>
+                         <option>Computer Science</option>
+                         <option>Medicine</option>
+                         <option>Management</option>
+                         <option>Other</option>
                      </select>
-                 </div>
-
-                 {{--  reset button  --}}
-                 <div>
-                     <button id="resetFilters"
-                         class="px-4 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ml-3">
-                         Reset Filters
-                     </button>
+                     <select
+                         class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                         <option>All Status</option>
+                         <option>Pending</option>
+                         <option>In Progress</option>
+                         <option>Completed</option>
+                     </select>
                  </div>
              </div>
          </div>
 
-         <div id="assignmentGrid">
-             <x-assignment-grid :assignments="$assignments['assignments']" />
+         <!-- Assignments Grid -->
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+             <!-- Assignment Card 1 -->
+             <div class="bg-white rounded-lg shadow card-hover overflow-hidden">
+                 <div class="p-6">
+                     <div class="flex justify-between items-start mb-4">
+                         <span class="subject-tag">Computer Science</span>
+                         <span class="status-badge bg-yellow-100 text-yellow-800">Pending</span>
+                     </div>
+                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Data Structures Project</h3>
+                     <p class="text-gray-600 mb-4">Implement a binary search tree with traversal algorithms and test cases.
+                     </p>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <i class="far fa-calendar-alt mr-2"></i>
+                         <span>Due: 15 Aug 2023</span>
+                     </div>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <span class="contact-badge mr-2">
+                             <i class="fab fa-whatsapp mr-1"></i> WhatsApp
+                         </span>
+                         <span>+1 234-567-890</span>
+                     </div>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <span class="discount-badge mr-2">
+                             <i class="fas fa-tag mr-1"></i> SUMMER2023
+                         </span>
+                         <span class="text-green-600 font-medium">15% off</span>
+                     </div>
+
+                     <div class="flex justify-between items-center">
+                         <div>
+                             <span class="text-lg font-bold text-indigo-600">$45.00</span>
+                             <span class="text-sm text-gray-500 line-through ml-2">$53.00</span>
+                         </div>
+                         <div class="flex space-x-2">
+                             <button class="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full">
+                                 <i class="fas fa-edit"></i>
+                             </button>
+                             <button class="p-2 text-red-600 hover:bg-red-50 rounded-full">
+                                 <i class="fas fa-trash"></i>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Assignment Card 2 -->
+             <div class="bg-white rounded-lg shadow card-hover overflow-hidden">
+                 <div class="p-6">
+                     <div class="flex justify-between items-start mb-4">
+                         <span class="subject-tag">Medicine</span>
+                         <span class="status-badge bg-blue-100 text-blue-800">In Progress</span>
+                     </div>
+                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Pharmacology Case Study</h3>
+                     <p class="text-gray-600 mb-4">Analyze drug interactions in a complex patient case with multiple
+                         comorbidities.</p>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <i class="far fa-calendar-alt mr-2"></i>
+                         <span>Due: 20 Aug 2023</span>
+                     </div>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <span class="contact-badge mr-2">
+                             <i class="fas fa-envelope mr-1"></i> Email
+                         </span>
+                         <span>student@example.com</span>
+                     </div>
+
+                     <div class="flex justify-between items-center">
+                         <span class="text-lg font-bold text-indigo-600">$65.00</span>
+                         <div class="flex space-x-2">
+                             <button class="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full">
+                                 <i class="fas fa-edit"></i>
+                             </button>
+                             <button class="p-2 text-red-600 hover:bg-red-50 rounded-full">
+                                 <i class="fas fa-trash"></i>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- Assignment Card 3 -->
+             <div class="bg-white rounded-lg shadow card-hover overflow-hidden">
+                 <div class="p-6">
+                     <div class="flex justify-between items-start mb-4">
+                         <span class="subject-tag">Management</span>
+                         <span class="status-badge bg-green-100 text-green-800">Completed</span>
+                     </div>
+                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Business Strategy Analysis</h3>
+                     <p class="text-gray-600 mb-4">Develop a comprehensive business strategy for a tech startup entering a
+                         competitive market.</p>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <i class="far fa-calendar-alt mr-2"></i>
+                         <span>Due: 10 Aug 2023</span>
+                     </div>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <span class="contact-badge mr-2">
+                             <i class="fab fa-telegram mr-1"></i> Telegram
+                         </span>
+                         <span>@student_user</span>
+                     </div>
+
+                     <div class="flex items-center text-sm text-gray-500 mb-4">
+                         <span class="discount-badge mr-2">
+                             <i class="fas fa-tag mr-1"></i> STUDENT15
+                         </span>
+                         <span class="text-green-600 font-medium">10% off</span>
+                     </div>
+
+                     <div class="flex justify-between items-center">
+                         <div>
+                             <span class="text-lg font-bold text-indigo-600">$55.00</span>
+                             <span class="text-sm text-gray-500 line-through ml-2">$61.00</span>
+                         </div>
+                         <div class="flex space-x-2">
+                             <button class="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full">
+                                 <i class="fas fa-edit"></i>
+                             </button>
+                             <button class="p-2 text-red-600 hover:bg-red-50 rounded-full">
+                                 <i class="fas fa-trash"></i>
+                             </button>
+                         </div>
+                     </div>
+                 </div>
+             </div>
          </div>
 
-         <!-- Pagination -->
-         <div class="mt-6" id="paginationLinks">
-             {{ $assignments['assignments']->links() }}
+         <!-- Load More Button -->
+         <div class="mt-8 text-center">
+             <button
+                 class="px-6 py-2 border border-indigo-600 text-indigo-600 rounded-md hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                 Load More Assignments
+             </button>
          </div>
-
      </div>
 
      <x-assignment-form-modal />
+
+
+
 
  @endsection
 
@@ -166,7 +301,6 @@
          }
      </style>
  @endpush
-
  @push('scripts')
      <script>
          $(document).ready(function() {
@@ -236,7 +370,6 @@
                      success: function(res) {
                          Swal.fire('Success!', 'Assignment created successfully.', 'success');
                          closeModel();
-                         loadAssignments();
                      },
                      error: function(xhr, status, error) {
                          if (xhr.status === 422) {
@@ -310,60 +443,5 @@
          document.getElementById('newAssignmentBtn').addEventListener('click', function() {
              document.getElementById('newAssignmentModal').classList.remove('hidden');
          });
-
-
-         function loadAssignments(extraFilters = {}) {
-             // Always get current filter values
-             let filters = {
-                 search: $("input[name='search']").val(),
-                 status: $("select[name='status']").val(),
-             };
-
-             // Merge pagination or any other extra filter
-             filters = {
-                 ...filters,
-                 ...extraFilters
-             };
-
-             $.ajax({
-                 url: "{{ route('admin.assignments.filter') }}",
-                 type: "GET",
-                 data: filters,
-                 success: function(res) {
-                     $("#assignmentGrid").html(res.html);
-                     $("#paginationLinks").html(res.pagination);
-                     attachPaginationHandlers();
-                 }
-             });
-         }
-
-         // Function to attach pagination event handlers
-         function attachPaginationHandlers() {
-             $(document).off("click", "#paginationLinks a"); // Remove existing handlers
-             $(document).on("click", "#paginationLinks a", function(e) {
-                 e.preventDefault();
-                 let page = $(this).attr("href").split("page=")[1];
-                 loadAssignments({
-                     page: page
-                 });
-             });
-         }
-
-         // Search event
-         $("input[name='search']").on("keyup", function() {
-             loadAssignments();
-         });
-
-         // Status filter
-         $("select[name='status']").on("change", function() {
-             loadAssignments();
-         });
-
-         //resetFilters
-         $("#resetFilters").on("click", function() {
-             $("input[name='search']").val("");
-             $("select[name='status']").val("");
-             loadAssignments();
-         })
      </script>
  @endpush

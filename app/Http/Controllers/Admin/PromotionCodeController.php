@@ -72,7 +72,7 @@ class PromotionCodeController extends Controller
     }
 
 
-    public function update(PromotionCodeUpdateRequest $request,string $id)
+    public function update(PromotionCodeUpdateRequest $request, string $id)
     {
         try {
             info($id);
@@ -104,6 +104,25 @@ class PromotionCodeController extends Controller
             return response()->json([
                 'status' => 500,
                 'message' => 'Failed to delete promotion code. Please try again.',
+            ]);
+        }
+    }
+
+    public function check(Request $request)
+    {
+        try {
+            $promoCode =  $this->promotionCodeHandlers->checkPromoCode($request->promo_code);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Promo code accepted! Enjoy your ' . (int)$promoCode->discount_percentage . '% discount.',
+                'id' => $promoCode->id,
+
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to check promotion code. Please try again.',
             ]);
         }
     }

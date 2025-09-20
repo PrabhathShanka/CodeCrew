@@ -15,7 +15,7 @@ class PromotionCodeHandlers
     public function storePromoCode($validated)
     {
         try {
-            $validated['promo_code'] = $this->generateUniquePromoCode();
+           // $validated['promo_code'] = $this->generateUniquePromoCode();
             $this->promotionCodeServices->store($validated);
         } catch (\Exception $e) {
             Log::error($e->getMessage());
@@ -61,6 +61,15 @@ class PromotionCodeHandlers
             throw $e;
         }
 
+    }
+
+    public function checkPromoCode($code){
+        try{
+            return $this->promotionCodeServices->checkPromoCode($code);
+        }catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
     }
 
     public function generatePromCodeTable($promoCodes)
@@ -120,12 +129,12 @@ class PromotionCodeHandlers
         }
     }
 
-    private function generateUniquePromoCode()
-    {
-        do {
-            $code = 'CODEABS' . rand(10000, 99999);
-        } while (PromotionCode::where('promo_code', $code)->exists());
+    // private function generateUniquePromoCode()
+    // {
+    //     do {
+    //         $code = 'USPC' . rand(10000, 99999);
+    //     } while (PromotionCode::where('promo_code', $code)->exists());
 
-        return $code;
-    }
+    //     return $code;
+    // }
 }

@@ -25,4 +25,23 @@ class PromotionCode extends Model
     {
         return $this->belongsToMany(User::class, 'promotion_code_user');
     }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($promotionCode) {
+            if (empty($promotionCode->promo_code)) {
+                $promotionCode->promo_code = static::generateUniquePromoCode();
+            }
+        });
+    }
+
+    private static function generateUniquePromoCode()
+    {
+        do {
+            $code = 'USPC' . rand(10000, 99999);
+        } while (static::where('promo_code', $code)->exists());
+
+        return $code;
+    }
 }

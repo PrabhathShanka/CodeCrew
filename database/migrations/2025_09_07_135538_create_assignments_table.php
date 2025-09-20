@@ -15,19 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('promotion_code_id')->nullable()->constrained('promotion_codes')->onDelete('set null');
-            $table->enum('subject', [
-                'Computer Science(IT)',
-                'Medicine(Nursing,Pharmacy,Laboratory)',
-                'Management',
-                'Accounting',
-                'Finance',
-                'Economics',
-                'Marketing',
-                'Mathematics',
-                'Engineering',
-                'Law',
-                'Other'
-            ]);
+            $table->string('title');
+            $table->string('subject')->nullable();
             $table->date('deadline')->nullable();
             $table->enum('contact_type',[
                 'whatsapp',
@@ -37,10 +26,11 @@ return new class extends Migration
             ]);
             $table->string('contact_info');
             $table->text('description')->nullable();
-            $table->string('attachment')->nullable();
+            $table->string('currency_type')->nullable();
             $table->decimal('price', 10, 2)->nullable();
             $table->enum('status', ['pending', 'in_progress', 'completed'])->default('pending');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

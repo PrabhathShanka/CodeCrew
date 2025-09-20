@@ -28,6 +28,7 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
         Route::get('/edit/{id}', [AssignmentController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [AssignmentController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [AssignmentController::class, 'destroy'])->name('destroy');
+        Route::get('/filter', [AssignmentController::class, 'fetchAssignments'])->name('filter');
     });
 
     Route::prefix('/promotions-code')->middleware(['auth'])->name('promotions-code.')->group(function () {
@@ -37,7 +38,10 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
         Route::get('/edit/{id}', [PromotionCodeController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [PromotionCodeController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [PromotionCodeController::class, 'destroy'])->name('destroy');
+
+        Route::get('/check', [PromotionCodeController::class, 'check'])->name('check');
     });
+
 });
 
 
