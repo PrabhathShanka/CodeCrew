@@ -4,11 +4,16 @@ use App\Http\Controllers\Admin\AssignmentController;
 use App\Http\Controllers\Admin\PromotionCodeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
 
 Route::get('/', function () {
     return view('home');
 });
 
+
+// Route::get('/', function () {
+//     return view('landingPage.index'); // no need for .blade.php
+// });
 // Dashboard
 // Route::get('/dashboard', function () {
 //     return view('admin.dashboard');
@@ -41,7 +46,6 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 
         Route::get('/check', [PromotionCodeController::class, 'check'])->name('check');
     });
-
 });
 
 

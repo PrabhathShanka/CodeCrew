@@ -71,9 +71,20 @@ class AssignmentController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
+{
+    try {
+        $assignment = $this->assignmentHandlers->show($id);
+
+        return view('admin.assignments.show', compact('assignment'));
+    } catch (\Exception $e) {
+        Log::error($e->getMessage());
+        return response()->json([
+            'status' => 500,
+            'message' => 'Failed to fetch assignment. Please try again.',
+        ]);
     }
+}
+
 
     /**
      * Show the form for editing the specified resource.
@@ -96,6 +107,19 @@ class AssignmentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try{
+            info($id);
+            $this->assignmentHandlers->destroy($id);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Assignment deleted successfully.',
+            ]);
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            return response()->json([
+                'status' => 500,
+                'message' => 'Failed to delete assignment. Please try again.',
+            ]);
+        }
     }
 }

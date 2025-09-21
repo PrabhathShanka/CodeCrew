@@ -7,25 +7,30 @@
     <title>@yield('title')</title>
     <meta name="description" content="@yield('meta_description', 'Default description for your site.')">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <link rel="icon" href="favicon.ico">
+    @vite(['resources/css/landing.css'])
 </head>
 
-<body class="flex flex-col h-full min-h-screen">
+<body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
+$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" :class="{ 'b eh': darkMode === true }">
     <!-- Fixed Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll': stickyMenu }"
+        @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false" >
         @include('layouts.navigationTemplate')
     </header>
 
     <!-- Scrollable Content -->
-    <main class="flex-grow pt-16 pb-20"> <!-- pt-16 accounts for header height, pb-20 for footer -->
+    <div>
         @yield('content')
-    </main>
+    </div>
 
     <!-- Fixed Footer -->
-    <footer class="fixed bottom-0 left-0 right-0 z-50 py-4 text-white bg-gray-800">
+    <div>
         @include('layouts.footer')
-    </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    @vite(['resources/js/landing.js'])
     @stack('scripts')
 </body>
 

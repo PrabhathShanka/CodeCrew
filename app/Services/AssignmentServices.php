@@ -45,4 +45,24 @@ class AssignmentServices
             throw $e;
         }
     }
+
+    public function getAssignmentById($id)
+    {
+        try {
+            return Assignment::with('attachments')->findOrFail($id);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            Assignment::findOrFail($id)->delete();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
+    }
 }

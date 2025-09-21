@@ -73,24 +73,19 @@
 
                     <!-- Actions -->
                     <div class="flex space-x-2">
-                        <button class="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full">
+                        <a href="{{ route('admin.assignments.show', $assignment->id) }}"
+                            class="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full">
                             <i class="fa fa-eye"></i>
-                        </button>
-                        <button class="p-2 text-indigo-600 hover:bg-indigo-50 rounded-full">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="p-2 text-red-600 hover:bg-red-50 rounded-full">
+                        </a>
+                        <a href="#" id="{{ $assignment->id }}"
+                            class="assignmentDelete p-2 text-red-600 hover:bg-red-50 rounded-full">
                             <i class="fas fa-trash"></i>
-                        </button>
+                        </a>
+
+
                     </div>
                 </div>
-
             </div>
         </div>
     @endforeach
 </div>
-
-{{-- pagination --}}
-{{--  <div class="mt-4" id="paginationLinks">
-    {{ $assignments->links() }}
-</div>  --}}

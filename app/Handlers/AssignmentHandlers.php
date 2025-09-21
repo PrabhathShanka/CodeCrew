@@ -85,4 +85,24 @@ class AssignmentHandlers
             throw $e;
         }
     }
+
+    public function show($id)
+    {
+        try {
+            return $this->assignmentServices->getAssignmentById($id);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $this->assignmentServices->destroy($id);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
+    }
 }
