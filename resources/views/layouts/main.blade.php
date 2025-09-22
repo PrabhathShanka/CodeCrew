@@ -8,7 +8,8 @@
     <meta name="description" content="@yield('meta_description', 'Default description for your site.')">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <link rel="icon" href="favicon.ico">
+        <link rel="icon" type="image/x-icon" href="{{ Vite::asset('resources/images/apprentice.png') }}">
+
     @vite(['resources/css/landing.css'])
 </head>
 

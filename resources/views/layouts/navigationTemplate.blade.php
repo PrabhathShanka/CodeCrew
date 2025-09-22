@@ -1,8 +1,14 @@
 <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
     <div class="vd to/4 tc wf yf">
         <a href="index.html">
-            <img class="om" src="{{ Vite::asset('resources/images/landingPage/logo-light.svg') }}" alt="Logo Light" />
-            <img class="xc nm" src="{{ Vite::asset('resources/images/landingPage/logo-dark.svg') }}" alt="Logo Dark" />
+            {{--  <img class="om" src="{{ Vite::asset('resources/images/landingPage/logo-light.svg') }}" alt="Logo Light" />
+            <img class="xc nm" src="{{ Vite::asset('resources/images/landingPage/logo-dark.svg') }}" alt="Logo Dark" />  --}}
+            <div class="flex items-center h-16 px-4  ">
+                <div class="bg-white rounded-full p-2 inline-flex items-center justify-center">
+                    <img src="{{ Vite::asset('resources/images/apprentice.png') }}" alt="Logo" class="w-8 h-8">
+                </div>
+                <span class="text-lg font-semibold ml-1">UniSupport</span>
+            </div>
         </a>
 
         <!-- Hamburger Toggle BTN -->

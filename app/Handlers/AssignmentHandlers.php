@@ -96,6 +96,16 @@ class AssignmentHandlers
         }
     }
 
+    public function edit($id)
+    {
+        try {
+            return $this->assignmentServices->getAssignmentById($id);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            throw $e;
+        }
+    }   
+
     public function destroy($id)
     {
         try {

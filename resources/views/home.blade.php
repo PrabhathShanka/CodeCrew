@@ -1,7 +1,10 @@
 @extends('layouts.main')
 
-@section('title', 'Home')
-@section('meta_description', 'This is the home page of my Laravel Breeze project with phone number field.')
+@section('title', 'CodeCrew - Academic Assignment & Project Solutions')
+@section('meta_description',
+    'CodeCrew provides professional assignment and project completion services for Sri Lankan
+    university students. Get expert help with research papers, coding projects, dissertations, and academic assignments with
+    guaranteed quality and timely delivery.')
 
 @section('content')
     <main>
@@ -23,20 +26,23 @@
             <div class="bb ze ki xn 2xl:ud-px-0">
                 <div class="tc _o">
                     <div class="animate_left jn/2">
-                        <h1 class="fk vj zp or kk wm wb">We specialize in UI/UX, Web Development, Digital Marketing.
+                        <h1 class="fk vj zp or kk wm wb">Expert Assignment & Project Solutions for Sri Lankan University
+                            Students
                         </h1>
                         <p class="fq">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fringilla magna mauris.
-                            Nulla fermentum
-                            viverra sem eu rhoncus consequat varius nisi quis, posuere magna.
+                            Get professional help with your academic assignments, coding projects, research papers, and
+                            dissertations.
+                            Our experienced team delivers high-quality, plagiarism-free work tailored to Sri Lankan
+                            university
+                            standards with guaranteed on-time submission.
                         </p>
 
                         <div class="tc tf yo zf mb">
-                            <a href="#!" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
+                            <a href="#!" class="ek jk lk gh gi hi rg ml il vc _d _l">Submit Your Assignment</a>
 
                             <span class="tc sf">
-                                <a href="#!" class="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>
-                                <span class="inline-block">For any question or concern</span>
+                                <a href="#!" class="inline-block ek xj kk wm"> Call us +94 70 123 4567 </a>
+                                <span class="inline-block">For urgent assignments & queries</span>
                             </span>
                         </div>
                     </div>
@@ -55,8 +61,8 @@
                             <img src="{{ Vite::asset('resources/images/landingPage/icon-01.svg') }}" alt="Icon" />
                         </div>
                         <div>
-                            <h4 class="ek yj go kk wm xb">24/7 Support</h4>
-                            <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
+                            <h4 class="ek yj go kk wm xb">24/7 Academic Support</h4>
+                            <p>Round-the-clock assistance for urgent assignments and academic emergencies.</p>
                         </div>
                     </div>
 
@@ -66,8 +72,8 @@
                             <img src="{{ Vite::asset('resources/images/landingPage/icon-02.svg') }}" alt="Icon" />
                         </div>
                         <div>
-                            <h4 class="ek yj go kk wm xb">Take Ownership</h4>
-                            <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
+                            <h4 class="ek yj go kk wm xb">Quality Assurance</h4>
+                            <p>Plagiarism-free, well-researched assignments meeting university standards.</p>
                         </div>
                     </div>
 
@@ -77,8 +83,8 @@
                             <img src="{{ Vite::asset('resources/images/landingPage/icon-03.svg') }}" alt="Icon" />
                         </div>
                         <div>
-                            <h4 class="ek yj go kk wm xb">Team Work</h4>
-                            <p>Lorem ipsum dolor sit amet conse adipiscing elit.</p>
+                            <h4 class="ek yj go kk wm xb">Expert Academic Team</h4>
+                            <p>Qualified professionals specializing in various academic disciplines and subjects.</p>
                         </div>
                     </div>
                 </div>
@@ -110,11 +116,12 @@
 
                     <!-- About Content -->
                     <div class="animate_right jn/2">
-                        <h4 class="ek yj mk gb">Why Choose Us</h4>
-                        <h2 class="fk vj zp pr kk wm qb">We Make Our customers happy by giving Best services.</h2>
-                        <p class="uo">It is a long established fact that a reader will be distracted by the
-                            readable content of a
-                            page when looking at its layout. The point of using Lorem Ipsum.</p>
+                        <h4 class="ek yj mk gb">Why Choose CodeCrew</h4>
+                        <h2 class="fk vj zp pr kk wm qb">We help Sri Lankan students excel academically with professional
+                            assignment solutions.</h2>
+                        <p class="uo">As Sri Lanka's leading academic support service, we understand the challenges
+                            university students face. Our expert team provides comprehensive assignment assistance, ensuring
+                            you meet deadlines while maintaining academic excellence and integrity.</p>
 
                         <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
                             <span class="tc wf xf be dd rg i gh ua">
@@ -122,7 +129,7 @@
                                 <img src="{{ Vite::asset('resources/images/landingPage/icon-play.svg') }}"
                                     alt="Play" />
                             </span>
-                            <span class="kk">SEE HOW WE WORK</span>
+                            <span class="kk">SEE HOW WE HELP STUDENTS</span>
                         </a>
                     </div>
                 </div>
@@ -140,7 +147,7 @@
             <img src="{{ Vite::asset('resources/images/landingPage/shape-11.svg') }}" alt="Shape" class="of h m ba" />
 
             <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `Meet With Our Creative Dedicated Team`, sectionTitleText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.` }">
+            <div x-data="{ sectionTitle: `Meet Our Academic Excellence Team`, sectionTitleText: `Our dedicated team of academic professionals and subject matter experts are committed to delivering high-quality assignment solutions that help Sri Lankan students achieve their academic goals.` }">
                 <div class="animate_top bb ze rj ki xn vq">
                     <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
                     </h2>
@@ -202,8 +209,8 @@
                             </div>
                         </div>
 
-                        <h4 class="yj go kk wm ob zb">Olivia Andrium</h4>
-                        <p>Product Manager</p>
+                        <h4 class="yj go kk wm ob zb">Dr. Samara Fernando</h4>
+                        <p>Research Supervisor</p>
                     </div>
 
                     <!-- Team Item -->
@@ -255,8 +262,8 @@
                             </div>
                         </div>
 
-                        <h4 class="yj go kk wm ob zb">Jemse Kemorun</h4>
-                        <p>Product Designer</p>
+                        <h4 class="yj go kk wm ob zb">Kasun Rajapaksha</h4>
+                        <p>IT Project Specialist</p>
                     </div>
 
                     <!-- Team Item -->
@@ -308,8 +315,8 @@
                             </div>
                         </div>
 
-                        <h4 class="yj go kk wm ob zb">Avi Pestarica</h4>
-                        <p>Web Designer</p>
+                        <h4 class="yj go kk wm ob zb">Sandaruwani Disanayake</h4>
+                        <p>Academic Consultant</p>
                     </div>
                 </div>
             </div>
@@ -319,7 +326,7 @@
         <!-- ===== Services Start ===== -->
         <section class="lj tp kr">
             <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `We Offer The Best Quality Service for You`, sectionTitleText: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.` }">
+            <div x-data="{ sectionTitle: `Comprehensive Academic Services for University Students`, sectionTitleText: `We provide a wide range of academic support services tailored to meet the diverse needs of Sri Lankan university students across all disciplines and academic levels.` }">
                 <div class="animate_top bb ze rj ki xn vq">
                     <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
                     </h2>
@@ -335,43 +342,43 @@
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src="{{ Vite::asset('resources/images/landingPage/icon-04.svg') }}" alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Crafted for Startups</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+                        <h4 class="ek zj kk wm nb _b">Assignment Writing</h4>
+                        <p>Professional essay writing, research papers, and academic assignments across all subjects.</p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src="{{ Vite::asset('resources/images/landingPage/icon-05.svg') }}" alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">High-quality Design</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+                        <h4 class="ek zj kk wm nb _b">Coding Projects</h4>
+                        <p>Complete programming assignments, software development projects, and technical solutions.</p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src="{{ Vite::asset('resources/images/landingPage/icon-06.svg') }}" alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">All Essential Sections</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+                        <h4 class="ek zj kk wm nb _b">Research Papers</h4>
+                        <p>In-depth research work, literature reviews, and academic publications with proper citations.</p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src="{{ Vite::asset('resources/images/landingPage/icon-07.svg') }}" alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Speed Optimized</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+                        <h4 class="ek zj kk wm nb _b">Final Year Projects</h4>
+                        <p>Complete dissertation and capstone project support from proposal to final submission.</p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src="{{ Vite::asset('resources/images/landingPage/icon-05.svg') }}" alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Fully Customizable</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+                        <h4 class="ek zj kk wm nb _b">Lab Reports</h4>
+                        <p>Detailed laboratory reports, data analysis, and scientific documentation for all subjects.</p>
                     </div>
 
                     <!-- Service Item -->
                     <div class="animate_top sg oi pi zq ml il am cn _m">
                         <img src="{{ Vite::asset('resources/images/landingPage/icon-06.svg') }}" alt="Icon" />
-                        <h4 class="ek zj kk wm nb _b">Regular Updates</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
+                        <h4 class="ek zj kk wm nb _b">Thesis Writing</h4>
+                        <p>Complete thesis support including methodology, analysis, and academic formatting standards.</p>
                     </div>
                 </div>
             </div>
@@ -389,7 +396,7 @@
             <img src="{{ Vite::asset('resources/images/landingPage/shape-13.svg') }}" alt="Shape" class="h r q" />
 
             <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
+            <div x-data="{ sectionTitle: `Affordable Academic Support Packages for Students`, sectionTitleText: `Choose from our flexible pricing plans designed specifically for Sri Lankan university students. We offer competitive rates with payment options that fit your student budget.` }">
                 <div class="animate_top bb ze rj ki xn vq">
                     <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
                     </h2>
@@ -453,125 +460,126 @@
         <!-- ===== Pricing Table End ===== -->
 
         <!-- ===== Projects Start ===== -->
-        <section class="pg pj vp mr oj wp nr">
-            <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
-                <div class="animate_top bb ze rj ki xn vq">
-                    <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-                    </h2>
-                    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-                </div>
-
-
+        {{-- <section class="pg pj vp mr oj wp nr">
+        <!-- Section Title Start -->
+        <div
+            x-data="{ sectionTitle: `Our Recent Academic Project Completions`, sectionTitleText: `Browse through our portfolio of successfully completed assignments and projects for Sri Lankan university students across various academic disciplines and study levels.` }">
+            <div class="animate_top bb ze rj ki xn vq">
+                <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
+                </h2>
+                <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
             </div>
-            <!-- Section Title End -->
 
-            <div class="bb ze ki xn 2xl:ud-px-0 jb" x-data="{ filterTab: 1 }">
-                <!-- Porject Tab -->
-                <div class="projects-tab _e bb tc uf wf xf cg rg hh rm vk xm si ti fc">
-                    <button data-filter="*" @click="filterTab = 1" :class="{ 'gh lk': filterTab === 1 }"
-                        class="project-tab-btn ek rg ml il vi mi">
-                        All
-                    </button>
-                    <button data-filter=".branding" @click="filterTab = 2" :class="{ 'gh lk': filterTab === 2 }"
-                        class="project-tab-btn ek rg ml il vi mi">
-                        Branding Strategy
-                    </button>
-                    <button data-filter=".digital" @click="filterTab = 3" :class="{ 'gh lk': filterTab === 3 }"
-                        class="project-tab-btn ek rg ml il vi mi">
-                        Digital Experiences
-                    </button>
-                    <button data-filter=".ecommerce" @click="filterTab = 4" :class="{ 'gh lk': filterTab === 4 }"
-                        class="project-tab-btn ek rg ml il vi mi">
-                        Ecommerce
-                    </button>
+
+        </div>
+        <!-- Section Title End -->
+
+        <div class="bb ze ki xn 2xl:ud-px-0 jb" x-data="{ filterTab: 1 }">
+            <!-- Porject Tab -->
+            <div class="projects-tab _e bb tc uf wf xf cg rg hh rm vk xm si ti fc">
+                <button data-filter="*" @click="filterTab = 1" :class="{ 'gh lk': filterTab === 1 }"
+                    class="project-tab-btn ek rg ml il vi mi">
+                    All Projects
+                </button>
+                <button data-filter=".branding" @click="filterTab = 2" :class="{ 'gh lk': filterTab === 2 }"
+                    class="project-tab-btn ek rg ml il vi mi">
+                    Research Papers
+                </button>
+                <button data-filter=".digital" @click="filterTab = 3" :class="{ 'gh lk': filterTab === 3 }"
+                    class="project-tab-btn ek rg ml il vi mi">
+                    Coding Projects
+                </button>
+                <button data-filter=".ecommerce" @click="filterTab = 4" :class="{ 'gh lk': filterTab === 4 }"
+                    class="project-tab-btn ek rg ml il vi mi">
+                    Final Year Projects
+                </button>
+            </div>
+
+            <!-- Projects item wrapper -->
+            <div class="projects-wrapper tc -ud-mx-5">
+                <div class="project-sizer"></div>
+                <!-- Project Item -->
+                <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
+                    <div class="c i pg sg z-1">
+                        <img src="{{ Vite::asset('resources/images/landingPage/project-01.png') }}" alt="Project" />
+
+                        <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
+                            <h4 class="ek tj kk hc">Data Analysis Project</h4>
+                            <p>Statistics & Research</p>
+                            <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
+                                <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Projects item wrapper -->
-                <div class="projects-wrapper tc -ud-mx-5">
-                    <div class="project-sizer"></div>
-                    <!-- Project Item -->
-                    <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
-                        <div class="c i pg sg z-1">
-                            <img src="{{ Vite::asset('resources/images/landingPage/project-01.png') }}" alt="Project" />
+                <!-- Project Item -->
+                <div class="project-item wi fb vd jn/2 to/3 digital">
+                    <div class="c i pg sg z-1">
+                        <img src="{{ Vite::asset('resources/images/landingPage/project-02.png') }}" alt="Project" />
 
-                            <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                                <p>Branded Ecommerce</p>
-                                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                                    </svg>
-                                </a>
-                            </div>
+                        <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
+                            <h4 class="ek tj kk hc">Web Development</h4>
+                            <p>Computer Science</p>
+                            <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
+                                <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Project Item -->
-                    <div class="project-item wi fb vd jn/2 to/3 digital">
-                        <div class="c i pg sg z-1">
-                            <img src="{{ Vite::asset('resources/images/landingPage/project-02.png') }}" alt="Project" />
+                <!-- Project Item -->
+                <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
+                    <div class="c i pg sg z-1">
+                        <img src="{{ Vite::asset('resources/images/landingPage/project-04.png') }}" alt="Project" />
 
-                            <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                                <p>Branded Ecommerce</p>
-                                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                                    </svg>
-                                </a>
-                            </div>
+                        <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
+                            <h4 class="ek tj kk hc">Photo Retouching</h4>
+                            <p>Branded Ecommerce</p>
+                            <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
+                                <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Project Item -->
-                    <div class="project-item wi fb vd jn/2 to/3 branding ecommerce">
-                        <div class="c i pg sg z-1">
-                            <img src="{{ Vite::asset('resources/images/landingPage/project-04.png') }}" alt="Project" />
+                <!-- Project Item -->
+                <div class="project-item wi fb vd vo/3 digital ecommerce">
+                    <div class="c i pg sg z-1">
+                        <img src="{{ Vite::asset('resources/images/landingPage/project-03.png') }}" alt="Project" />
 
-                            <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                                <p>Branded Ecommerce</p>
-                                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project Item -->
-                    <div class="project-item wi fb vd vo/3 digital ecommerce">
-                        <div class="c i pg sg z-1">
-                            <img src="{{ Vite::asset('resources/images/landingPage/project-03.png') }}" alt="Project" />
-
-                            <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
-                                <h4 class="ek tj kk hc">Photo Retouching</h4>
-                                <p>Branded Ecommerce</p>
-                                <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
-                                    <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14"
-                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
-                                    </svg>
-                                </a>
-                            </div>
+                        <div class="h s r df nl kl im tc sf wf xf vd yc sg al hh/20 z-10">
+                            <h4 class="ek tj kk hc">Photo Retouching</h4>
+                            <p>Branded Ecommerce</p>
+                            <a class="c tc wf xf ie ld rg _g dh ml il ph jm km jc" href="#!">
+                                <svg class="th lm ml il" width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section> --}}
         <!-- ===== Projects End ===== -->
 
         <!-- ===== Testimonials Start ===== -->
-        <section class="hj rp hr">
+        <section class="hj rp hr pg pj vp mr oj wp nr">
             <!-- Section Title Start -->
             <div x-data="{ sectionTitle: `Client’s Testimonials`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
                 <div class="animate_top bb ze rj ki xn vq">
@@ -606,15 +614,18 @@
                                             <img src="{{ Vite::asset('resources/images/landingPage/icon-quote.svg') }}"
                                                 alt="Quote" />
                                             <p class="ek ik xj _p kc fb">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dolor diam,
-                                                feugiat quis enim sed,
-                                                ullamcorper semper ligula. Mauris consequat justo volutpat.
+                                                CodeCrew helped me complete my final year project on time with excellent
+                                                quality.
+                                                Their team understood my requirements perfectly and delivered beyond my
+                                                expectations.
+                                                Highly recommended for any Sri Lankan student needing academic support!
                                             </p>
 
                                             <div class="tc yf vf">
                                                 <div>
-                                                    <span class="rc ek xj kk wm zb">Devid Smith</span>
-                                                    <span class="rc">Founter @democompany</span>
+                                                    <span class="rc ek xj kk wm zb">Kasun Perera</span>
+                                                    <span class="rc">Computer Science Graduate @University of
+                                                        Colombo</span>
                                                 </div>
 
                                                 <img class="rk"
@@ -663,20 +674,20 @@
             <div class="bb ze i va ki xn br">
                 <div class="tc uf sn tn xf un gg">
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">785</h2>
-                        <p class="ek bk aq">Global Brands</p>
+                        <h2 class="gk vj zp or kk wm hc">1200+</h2>
+                        <p class="ek bk aq">Assignments Completed</p>
                     </div>
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">533</h2>
-                        <p class="ek bk aq">Happy Clients</p>
+                        <h2 class="gk vj zp or kk wm hc">850+</h2>
+                        <p class="ek bk aq">Happy Students</p>
                     </div>
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">865</h2>
-                        <p class="ek bk aq">Winning Award</p>
+                        <h2 class="gk vj zp or kk wm hc">95%</h2>
+                        <p class="ek bk aq">Success Rate</p>
                     </div>
                     <div class="animate_top me/5 ln rj">
-                        <h2 class="gk vj zp or kk wm hc">346</h2>
-                        <p class="ek bk aq">Happy Clients</p>
+                        <h2 class="gk vj zp or kk wm hc">24/7</h2>
+                        <p class="ek bk aq">Support Available</p>
                     </div>
                 </div>
             </div>
@@ -686,7 +697,7 @@
         <!-- ===== Clients Start ===== -->
         <section class="pj vp mr">
             <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `Trusted by Global Brands`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
+            <div x-data="{ sectionTitle: `Trusted by Students from Leading Universities`, sectionTitleText: `We proudly serve students from top universities across Sri Lanka, helping them achieve academic excellence with our professional assignment and project support services.` }">
                 <div class="animate_top bb ze rj ki xn vq">
                     <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
                     </h2>
@@ -741,113 +752,111 @@
         <!-- ===== Clients End ===== -->
 
         <!-- ===== Blog Start ===== -->
-        <section class="ji gp uq">
-            <!-- Section Title Start -->
-            <div x-data="{ sectionTitle: `Latest Blogs & News`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
-                <div class="animate_top bb ze rj ki xn vq">
-                    <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-                    </h2>
-                    <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+        {{-- <section class="ji gp uq"> --}}
+        <!-- Section Title Start -->
+        {{-- <div
+            x-data="{ sectionTitle: `Latest Blogs & News`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.` }">
+            <div class="animate_top bb ze rj ki xn vq">
+                <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
+                </h2>
+                <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+            </div>
+
+
+        </div> --}}
+        <!-- Section Title End -->
+        {{--
+        <div class="bb ye ki xn vq jb jo">
+            <div class="wc qf pn xo zf iq">
+                <!-- Blog Item -->
+                <div class="animate_top sg vk rm xm">
+                    <div class="c rc i z-1 pg">
+                        <img class="w-full" src="{{ Vite::asset('resources/images/landingPage/blog-01.png') }}"
+                            alt="Blog" />
+
+                        <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
+                            <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="yh">
+                        <div class="tc uf wf ag jq">
+                            <div class="tc wf ag">
+                                <img src="{{ Vite::asset('resources/images/landingPage/icon-man.svg') }}" alt="User" />
+                                <p>Musharof Chy</p>
+                            </div>
+                            <div class="tc wf ag">
+                                <img src="{{ Vite::asset('resources/images/landingPage/icon-calender.svg') }}"
+                                    alt="Calender" />
+                                <p>25 Dec, 2025</p>
+                            </div>
+                        </div>
+                        <h4 class="ek tj ml il kk wm xl eq lb">
+                            <a href="blog-single.html">Free advertising for your online business</a>
+                        </h4>
+                    </div>
                 </div>
 
+                <!-- Blog Item -->
+                <div class="animate_top sg vk rm xm">
+                    <div class="c rc i z-1 pg">
+                        <img class="w-full" src="{{ Vite::asset('resources/images/landingPage/blog-02.png') }}"
+                            alt="Blog" />
 
-            </div>
-            <!-- Section Title End -->
-
-            <div class="bb ye ki xn vq jb jo">
-                <div class="wc qf pn xo zf iq">
-                    <!-- Blog Item -->
-                    <div class="animate_top sg vk rm xm">
-                        <div class="c rc i z-1 pg">
-                            <img class="w-full" src="{{ Vite::asset('resources/images/landingPage/blog-01.png') }}"
-                                alt="Blog" />
-
-                            <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
-                            </div>
-                        </div>
-
-                        <div class="yh">
-                            <div class="tc uf wf ag jq">
-                                <div class="tc wf ag">
-                                    <img src="{{ Vite::asset('resources/images/landingPage/icon-man.svg') }}"
-                                        alt="User" />
-                                    <p>Musharof Chy</p>
-                                </div>
-                                <div class="tc wf ag">
-                                    <img src="{{ Vite::asset('resources/images/landingPage/icon-calender.svg') }}"
-                                        alt="Calender" />
-                                    <p>25 Dec, 2025</p>
-                                </div>
-                            </div>
-                            <h4 class="ek tj ml il kk wm xl eq lb">
-                                <a href="blog-single.html">Free advertising for your online business</a>
-                            </h4>
+                        <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
+                            <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
                         </div>
                     </div>
 
-                    <!-- Blog Item -->
-                    <div class="animate_top sg vk rm xm">
-                        <div class="c rc i z-1 pg">
-                            <img class="w-full" src="{{ Vite::asset('resources/images/landingPage/blog-02.png') }}"
-                                alt="Blog" />
-
-                            <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
+                    <div class="yh">
+                        <div class="tc uf wf ag jq">
+                            <div class="tc wf ag">
+                                <img src="{{ Vite::asset('resources/images/landingPage/icon-man.svg') }}" alt="User" />
+                                <p>Musharof Chy</p>
+                            </div>
+                            <div class="tc wf ag">
+                                <img src="{{ Vite::asset('resources/images/landingPage/icon-calender.svg') }}"
+                                    alt="Calender" />
+                                <p>25 Dec, 2025</p>
                             </div>
                         </div>
+                        <h4 class="ek tj ml il kk wm xl eq lb">
+                            <a href="blog-single.html">9 simple ways to improve your design skills</a>
+                        </h4>
+                    </div>
+                </div>
 
-                        <div class="yh">
-                            <div class="tc uf wf ag jq">
-                                <div class="tc wf ag">
-                                    <img src="{{ Vite::asset('resources/images/landingPage/icon-man.svg') }}"
-                                        alt="User" />
-                                    <p>Musharof Chy</p>
-                                </div>
-                                <div class="tc wf ag">
-                                    <img src="{{ Vite::asset('resources/images/landingPage/icon-calender.svg') }}"
-                                        alt="Calender" />
-                                    <p>25 Dec, 2025</p>
-                                </div>
-                            </div>
-                            <h4 class="ek tj ml il kk wm xl eq lb">
-                                <a href="blog-single.html">9 simple ways to improve your design skills</a>
-                            </h4>
+                <!-- Blog Item -->
+                <div class="animate_top sg vk rm xm">
+                    <div class="c rc i z-1 pg">
+                        <img class="w-full" src="{{ Vite::asset('resources/images/landingPage/blog-03.png') }}"
+                            alt="Blog" />
+
+                        <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
+                            <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
                         </div>
                     </div>
 
-                    <!-- Blog Item -->
-                    <div class="animate_top sg vk rm xm">
-                        <div class="c rc i z-1 pg">
-                            <img class="w-full" src="{{ Vite::asset('resources/images/landingPage/blog-03.png') }}"
-                                alt="Blog" />
-
-                            <div class="im h r s df vd yc wg tc wf xf al hh/20 nl il z-10">
-                                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
+                    <div class="yh">
+                        <div class="tc uf wf ag jq">
+                            <div class="tc wf ag">
+                                <img src="{{ Vite::asset('resources/images/landingPage/icon-man.svg') }}" alt="User" />
+                                <p>Musharof Chy</p>
+                            </div>
+                            <div class="tc wf ag">
+                                <img src="{{ Vite::asset('resources/images/landingPage/icon-calender.svg') }}"
+                                    alt="Calender" />
+                                <p>25 Dec, 2025</p>
                             </div>
                         </div>
-
-                        <div class="yh">
-                            <div class="tc uf wf ag jq">
-                                <div class="tc wf ag">
-                                    <img src="{{ Vite::asset('resources/images/landingPage/icon-man.svg') }}"
-                                        alt="User" />
-                                    <p>Musharof Chy</p>
-                                </div>
-                                <div class="tc wf ag">
-                                    <img src="{{ Vite::asset('resources/images/landingPage/icon-calender.svg') }}"
-                                        alt="Calender" />
-                                    <p>25 Dec, 2025</p>
-                                </div>
-                            </div>
-                            <h4 class="ek tj ml il kk wm xl eq lb">
-                                <a href="blog-single.html">Tips to quickly improve your coding speed.</a>
-                            </h4>
-                        </div>
+                        <h4 class="ek tj ml il kk wm xl eq lb">
+                            <a href="blog-single.html">Tips to quickly improve your coding speed.</a>
+                        </h4>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section> --}}
         <!-- ===== Blog End ===== -->
 
         <!-- ===== Contact Start ===== -->
@@ -883,19 +892,19 @@
 
                         <div class="fb">
                             <h4 class="wj kk wm cc">Email Address</h4>
-                            <p><a href="#!">support@startup.com</a></p>
+                            <p><a href="#!">support@codecrew.lk</a></p>
                         </div>
                         <div class="fb">
                             <h4 class="wj kk wm cc">Office Location</h4>
-                            <p>76/A, Green valle, Califonia USA.</p>
+                            <p>No. 123, Galle Road, Colombo 03, Sri Lanka</p>
                         </div>
                         <div class="fb">
                             <h4 class="wj kk wm cc">Phone Number</h4>
-                            <p><a href="#!">+009 8754 3433 223</a></p>
+                            <p><a href="#!">+94 70 123 4567</a></p>
                         </div>
                         <div class="fb">
-                            <h4 class="wj kk wm cc">Skype Email</h4>
-                            <p><a href="#!">example@yourmail.com</a></p>
+                            <h4 class="wj kk wm cc">WhatsApp</h4>
+                            <p><a href="#!">+94 77 987 6543</a></p>
                         </div>
 
                         <span class="rc nd rh tm lc fb"></span>
@@ -1002,17 +1011,18 @@
                 <div class="tc uf sn tn un gg">
                     <div class="animate_left to/2">
                         <h2 class="fk vj zp pr lk ac">
-                            Join with 5000+ Startups Growing with Base.
+                            Join 1000+ Sri Lankan Students Who Trust CodeCrew.
                         </h2>
                         <p class="lk">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis nibh lorem. Duis sed odio
-                            lorem. In a
-                            efficitur leo. Ut venenatis rhoncus.
+                            Ready to excel in your academics? Get professional help with assignments, projects, and research
+                            work.
+                            Our expert team is here to ensure your academic success with quality, timely, and affordable
+                            solutions.
                         </p>
                     </div>
                     <div class="animate_right bf">
                         <a href="#!" class="vc ek kk hh rg ol il cm gi hi">
-                            Get Started Now
+                            Submit Assignment Now
                         </a>
                     </div>
                 </div>

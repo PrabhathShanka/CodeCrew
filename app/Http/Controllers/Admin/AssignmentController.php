@@ -91,7 +91,20 @@ class AssignmentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+       try{
+        $assignment = $this->assignmentHandlers->edit($id);
+        info($assignment->toArray());
+        return response()->json([
+            'status' => 200,
+            'assignment' => $assignment
+        ]);
+       }catch(\Exception $e){
+        Log::error($e->getMessage());
+        return response()->json([
+            'status' => 500,
+            'message' => 'Failed to fetch assignment. Please try again.',
+        ]);
+       }
     }
 
     /**
@@ -108,7 +121,6 @@ class AssignmentController extends Controller
     public function destroy(string $id)
     {
         try{
-            info($id);
             $this->assignmentHandlers->destroy($id);
             return response()->json([
                 'status' => 200,

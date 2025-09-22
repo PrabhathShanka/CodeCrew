@@ -117,9 +117,9 @@
                      </h2>
                      <span
                          class="px-3 py-1 rounded-full text-xs sm:text-sm font-medium
-            @if ($assignment->status === 'pending') bg-yellow-100 text-yellow-800
-            @elseif($assignment->status === 'in_progress') bg-blue-100 text-blue-800
-            @elseif($assignment->status === 'completed') bg-green-100 text-green-800 @endif">
+                        @if ($assignment->status === 'pending') bg-yellow-100 text-yellow-800
+                        @elseif($assignment->status === 'in_progress') bg-blue-100 text-blue-800
+                        @elseif($assignment->status === 'completed') bg-green-100 text-green-800 @endif">
                          {{ ucfirst(str_replace('_', ' ', $assignment->status)) }}
                      </span>
                  </div>
@@ -201,7 +201,7 @@
                                          <span
                                              class="text-xs sm:text-sm truncate">{{ basename($attachment->file_path) }}</span>
                                      </div>
-                                     <a href="{{ asset('storage/' . $attachment->file_path) }}" target="_blank"
+                                     <a href="{{ env('FILESYSTEM_URL') . '/' . $attachment->file_path }}" target="_blank"
                                          class="text-indigo-600 hover:text-indigo-800 ml-2 text-sm sm:text-base">
                                          <i class="fas fa-download"></i>
                                      </a>
@@ -227,6 +227,9 @@
 
                      <!-- Include the edit form component at the bottom of your view -->
                      {{--  @include('components.assignment-edit-form')  --}}
+
+                     <x-assignment-edit-form />
+
 
 
                  </div>
@@ -261,153 +264,88 @@
 
 @push('scripts')
  <script>
-     let currentAssignmentId = null;
+     function openEditModal(id) {
 
-     // Function to open edit modal
-     function openEditModal(assignmentId) {
-         currentAssignmentId = assignmentId;
-         fetchAssignmentData(assignmentId);
-         document.getElementById('editAssignmentModal').classList.remove('hidden');
-         document.body.classList.add('overflow-hidden');
+         $('#editAssignmentForm')[0].reset();
+         $('#editFileList').empty();
+         $('#editPromoMessage').addClass('hidden').empty();
+         $('#editAssignmentId').val(id);
+
+
+         $.get("{{ url('admin/assignments/edit') }}/" + id, function(res) {
+             if (res.status === 200) {
+
+                 const assignment = res.assignment;
+
+                 $('#editTitle').val(assignment.title);
+                 $('#editDeadline').val(assignment.deadline);
+                 $('#editContactType').val(assignment.contact_type).trigger('change');
+
+                 if (assignment.contact_type) {
+                     $('#editContactInfoInput').show();
+                 }
+                 $('#editContactInfo').val(assignment.contact_info);
+
+                 $('#editSubject').val(assignment.subject);
+                 $('#editDescription').val(assignment.description);
+                 $('#editPrice').val(assignment.price);
+                 $('#editCurrencyType').val(assignment.currency_type);
+                 $('#editStatus').val(assignment.status);
+
+
+                 if (assignment.promotion_code) {
+                     $('#editPromoCode').val(assignment.promotion_code.promo_code);
+                 }
+             } else {
+                 alert('Error loading assignment data: ' + res.message);
+             }
+         }).fail(function(xhr, status, error) {
+             console.error('Error:', error);
+             alert('Failed to load assignment data. Please try again.');
+         });
+
+         $('#editAssignmentModal').removeClass('hidden');
      }
 
-     // Function to close edit modal
      function closeEditModal() {
-         document.getElementById('editAssignmentModal').classList.add('hidden');
-         document.body.classList.remove('overflow-hidden');
-         clearErrorMessages();
+         $('#editAssignmentModal').addClass('hidden');
      }
 
-     // Fetch assignment data via AJAX
-     function fetchAssignmentData(assignmentId) {
-         fetch(`/admin/assignments/${assignmentId}/edit`)
-             .then(response => {
-                 if (!response.ok) {
-                     throw new Error('Network response was not ok');
-                 }
-                 return response.json();
-             })
-             .then(data => {
-                 populateEditForm(data);
-             })
-             .catch(error => {
-                 console.error('Error fetching assignment data:', error);
-                 alert('Error loading assignment data. Please try again.');
-             });
-     }
 
-     // Populate form with assignment data
-     function populateEditForm(data) {
-         document.getElementById('edit_title').value = data.title || '';
-         document.getElementById('edit_subject').value = data.subject || '';
-         document.getElementById('edit_description').value = data.description || '';
-         document.getElementById('edit_deadline').value = data.deadline || '';
-         document.getElementById('edit_contact_type').value = data.contact_type || 'whatsapp';
-         document.getElementById('edit_contact_info').value = data.contact_info || '';
-         document.getElementById('edit_currency_type').value = data.currency_type || '$';
-         document.getElementById('edit_price').value = data.price || '';
-         document.getElementById('edit_status').value = data.status || 'pending';
-
-         // Display current attachments
-         const attachmentsContainer = document.getElementById('current-attachments');
-         if (data.attachments && data.attachments.length > 0) {
-             attachmentsContainer.innerHTML = '<p class="text-sm font-medium text-gray-700">Current Attachments:</p>';
-             data.attachments.forEach(attachment => {
-                 const attachmentElement = document.createElement('div');
-                 attachmentElement.className = 'flex items-center justify-between p-2 bg-gray-100 rounded';
-                 attachmentElement.innerHTML = `
-                    <div class="flex items-center">
-                        <i class="fas fa-paperclip text-gray-400 mr-2"></i>
-                        <span class="text-sm">${attachment.file_name}</span>
-                    </div>
-                    <button type="button" onclick="deleteAttachment(${attachment.id})" class="text-red-500 hover:text-red-700">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                `;
-                 attachmentsContainer.appendChild(attachmentElement);
-             });
-         } else {
-             attachmentsContainer.innerHTML = '<p class="text-sm text-gray-500">No attachments</p>';
+     $('#editFileInput').on('change', function() {
+         let files = this.files;
+         $('#editFileList').empty();
+         if (files.length > 5) {
+             Swal.fire("Error", "You can only upload up to 5 files.", "error");
+             $(this).val('');
+             return;
          }
-     }
-
-     // Handle form submission
-     document.getElementById('editAssignmentForm').addEventListener('submit', function(e) {
-         e.preventDefault();
-
-         const formData = new FormData(this);
-
-         fetch(`/admin/assignments/${currentAssignmentId}`, {
-                 method: 'POST',
-                 body: formData,
-                 headers: {
-                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
-                         'content'),
-                     'X-HTTP-Method-Override': 'PUT'
-                 }
-             })
-             .then(response => response.json())
-             .then(data => {
-                 if (data.success) {
-                     // Close modal and refresh page or update UI
-                     closeEditModal();
-                     alert('Assignment updated successfully!');
-                     window.location.reload(); // Or update specific elements instead of reloading
-                 } else if (data.errors) {
-                     // Display validation errors
-                     displayErrors(data.errors);
-                 }
-             })
-             .catch(error => {
-                 console.error('Error updating assignment:', error);
-                 alert('Error updating assignment. Please try again.');
-             });
+         for (let i = 0; i < files.length; i++) {
+             $('#editFileList').append('<div>' + files[i].name + '</div>');
+         }
      });
 
-     // Display validation errors
-     function displayErrors(errors) {
-         clearErrorMessages();
 
-         for (const field in errors) {
-             const errorElement = document.getElementById(`edit_${field}_error`);
-             if (errorElement) {
-                 errorElement.textContent = errors[field][0];
-             }
-         }
-     }
+     $('#editAssignmentForm').on('submit', function(e) {
+         e.preventDefault();
+         let id = $('#editAssignmentId').val();
+         let formData = new FormData(this);
 
-     // Clear error messages
-     function clearErrorMessages() {
-         const errorElements = document.querySelectorAll('[id$="_error"]');
-         errorElements.forEach(element => {
-             element.textContent = '';
-         });
-     }
-
-     // Delete attachment
-     function deleteAttachment(attachmentId) {
-         if (confirm('Are you sure you want to delete this attachment?')) {
-             fetch(`/admin/assignment-attachments/${attachmentId}`, {
-                     method: 'DELETE',
-                     headers: {
-                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                         'Content-Type': 'application/json'
-                     }
-                 })
-                 .then(response => response.json())
-                 .then(data => {
-                     if (data.success) {
-                         // Remove attachment from UI
-                         fetchAssignmentData(currentAssignmentId);
-                     } else {
-                         alert('Error deleting attachment.');
-                     }
-                 })
-                 .catch(error => {
-                     console.error('Error deleting attachment:', error);
-                     alert('Error deleting attachment. Please try again.');
+         $.ajax({
+             url: "{{ url('admin/assignments') }}/" + id,
+             method: "POST",
+             data: formData,
+             processData: false,
+             contentType: false,
+             success: function(res) {
+                 Swal.fire("Success", "Assignment updated!", "success").then(() => {
+                     location.reload();
                  });
-         }
-     }
+             },
+             error: function(xhr) {
+                 Swal.fire("Error", "Failed to update assignment.", "error");
+             }
+         });
+     });
  </script>
 @endpush

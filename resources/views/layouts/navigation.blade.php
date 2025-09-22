@@ -2,9 +2,11 @@
 <div class="flex flex-col w-64 h-full text-white bg-gradient-to-b from-indigo-700 to-indigo-900">
 
     <!-- Logo -->
-    <div class="flex items-center h-16 px-4 border-b border-indigo-600">
-        <i class="mr-2 text-xl fas fa-shield-alt"></i>
-        <span class="text-lg font-semibold">AdminPro</span>
+    <div class="flex items-center h-16 px-4 border-b border-indigo-600 ">
+        <div class="bg-white rounded-full p-2 inline-flex items-center justify-center">
+            <img src="{{ Vite::asset('resources/images/apprentice.png') }}" alt="Logo" class="w-8 h-8">
+        </div>
+        <span class="text-lg font-semibold ml-1">UniSupport</span>
     </div>
 
     <!-- Profile -->
@@ -21,7 +23,7 @@
     <!-- Navigation Links -->
     <nav class="flex-1 mt-4 space-y-1">
         <a href="#"
-           class="flex items-center px-4 py-3 text-sm rounded-lg transition-all duration-200 {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-600 text-white' : 'text-indigo-200 hover:bg-indigo-600 hover:text-white' }}">
+            class="flex items-center px-4 py-3 text-sm rounded-lg transition-all duration-200 {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-600 text-white' : 'text-indigo-200 hover:bg-indigo-600 hover:text-white' }}">
             <i class="mr-3 fas fa-tachometer-alt"></i> Dashboard
         </a>
         {{--
@@ -37,12 +39,10 @@
         </a>
 
         @role('super_admin')
-
-        <a href="{{ route('admin.promotions-code.index') }}"
-            class="flex items-center px-4 py-3 text-sm rounded-lg transition-all duration-200 {{ request()->routeIs('admin.events.*') ? 'bg-indigo-600 text-white' : 'text-indigo-200 hover:bg-indigo-600 hover:text-white' }}">
-            <i class="mr-3 fas fa-codepen"></i> Promotions Code
-        </a>
-
+            <a href="{{ route('admin.promotions-code.index') }}"
+                class="flex items-center px-4 py-3 text-sm rounded-lg transition-all duration-200 {{ request()->routeIs('admin.events.*') ? 'bg-indigo-600 text-white' : 'text-indigo-200 hover:bg-indigo-600 hover:text-white' }}">
+                <i class="mr-3 fas fa-codepen"></i> Promotions Code
+            </a>
         @endrole
         {{--
         <a href="{{ route('admin.settings') }}"

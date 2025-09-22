@@ -49,7 +49,7 @@ class AssignmentServices
     public function getAssignmentById($id)
     {
         try {
-            return Assignment::with('attachments')->findOrFail($id);
+            return Assignment::with('attachments','promotionCode')->findOrFail($id);
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             throw $e;
